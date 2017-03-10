@@ -1,0 +1,16 @@
+.DS_Store
+.sass-cache
+.tmp
+.idea
+node_modules
+build/bundle.prod.js
+build/bundle.dev.js
+build/index.html
+styleguide
+dist
+npm-debug.log
+coverage
+.nyc_output/
+.webpack.config.js.swp
+.package.json.swp
+build/

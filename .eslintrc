@@ -1,0 +1,42 @@
+{
+    "extends": "eslint:recommended",
+     "env" : {
+       "browser" : true,
+       "es6": true
+     },
+     "parserOptions" : {
+        "emcaVersion" : 7,
+        "sourceType" : "module",
+        "ecmaFeatures" : {
+            jsx: true
+        }
+    },
+    "parser": "babel-eslint",
+    "rules": {
+        "indent": [2, 4],
+        "strict": [2, "global"],
+        "no-console": 1,
+        "no-debugger": 1,
+        "no-alert": 1,
+        "no-unused-vars": 1,
+        "no-undef": 2,
+        "camelcase": [1, {"properties": "never"}],
+        "no-multi-spaces": 1,
+        "valid-jsdoc": 1,
+        "no-underscore-dangle": 0,
+        "no-extra-parens": 0,
+        "quotes": [2, "single"],
+        "comma-spacing": 0,
+        "space-infix-ops": 0,
+        "key-spacing": 0,
+        "eol-last": 0
+    },
+    "globals": {
+        "Promise": false,
+        "it": false,
+        "describe": false,
+        module: false,
+        setImmediate: false,
+        require: false
+    }
+}
