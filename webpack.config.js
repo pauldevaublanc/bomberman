@@ -39,6 +39,22 @@ const common = {
                 // more custom, pass a path to it. I.e., babel?cacheDirectory=<path>
                 exclude: /node_modules/,
                 loader: 'babel'
+            },
+            {
+                // Test expects a RegExp! Note the slashes!
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loaders: [
+                    'style-loader',
+                    'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+                ]
+            },
+            {
+                test: /\.(png|jpe?g)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: 'img/[name].[ext]'
+                }
             }
         ]
     }
