@@ -65,12 +65,24 @@ export default class Perso {
         }
         $(document).keydown((key) => {
             this.forward(assoc[key.which])
+            $(function () {
+                let interval = null
             // setInterval
-        })
+                if (interval === null) { // si il y a deja un interval je fais rien je le laisse tourner
+                    interval = setInterval(() => {
+                        this.perso.css({
+                            'background-position': '40px -33px'
+                        })
+                    }, 1000) // toute les second
+                }
+                $(document).keyup((key) => {
 
-        $(document).keyup((key) => {
-            console.log('keyup')
-            // clearIntervql
+                // clearInterval
+                    clearInterval(interval)
+                    interval = null
+                    console.log('keyup je stop l interval donc mon perso ne bougera plus')
+                })
+            })
         })
     }
 
