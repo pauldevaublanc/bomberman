@@ -1,4 +1,5 @@
 import Sprite from 'Sprite'
+import Item from 'Item'
 
 export default class Screen {
     constructor(width, height, spriteWidth, spriteHeight, element) {
@@ -26,14 +27,10 @@ export default class Screen {
                 grid[y][x] = {
                     sprite: new Sprite(this.spriteWidth, this.spriteHeight, {left: x * this.spriteWidth, top: y * this.spriteHeight}, this.element),
                     item: {
-
                     }
                 }
             }
         }
-
-        console.debug(grid)
-
     }
 
     getMaxX(){

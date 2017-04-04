@@ -23,7 +23,6 @@ export default class Perso {
     forward(direction){
         // mettre le perso dans la bonne direction
         this.setDirection(direction)
-        console.log(this.x, this.y, 'coordinates before', direction)
         if (direction === 'right') {
             if (this.x < this.maxX - 1){
                 this.x += 1
@@ -44,12 +43,10 @@ export default class Perso {
                 this.x -= 1
             }
         }
-        console.log(this.x, this.y, 'coordinates after', direction)
         this.updateRender()
     }
 
     updateRender(){
-        console.log('updateRender', this.x, this.y)
         this.perso.css({
             left: this.x * this.spriteWidth,
             top: this.y * this.spriteHeight
@@ -63,26 +60,22 @@ export default class Perso {
             39: 'right',
             40: 'down'
         }
+        let interval = null
         $(document).keydown((key) => {
             this.forward(assoc[key.which])
-            $(function () {
-                let interval = null
             // setInterval
-                if (interval === null) { // si il y a deja un interval je fais rien je le laisse tourner
-                    interval = setInterval(() => {
-                        this.perso.css({
-                            'background-position': '40px -33px'
-                        })
-                    }, 1000) // toute les second
-                }
-                $(document).keyup((key) => {
+            if (interval === null) { // si il y a deja un interval je fais rien je le laisse tourner
+                interval = setInterval(() => {
+                    console.log('background image update perso')
+                }, 500)
+            }
+        })
 
-                // clearInterval
-                    clearInterval(interval)
-                    interval = null
-                    console.log('keyup je stop l interval donc mon perso ne bougera plus')
-                })
-            })
+        $(document).keyup(() => {
+            // je stop mon interval et je le remet à null
+            clearInterval(interval)
+            interval = null
+            console.log('keyup je stop l interval donc mon perso ne bougera plus')
         })
     }
 
